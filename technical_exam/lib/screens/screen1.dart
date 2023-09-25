@@ -23,9 +23,13 @@ class Screen1 extends StatelessWidget {
         future: apiService.fetchTodos(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
+            return const Center(
+              child: CircularProgressIndicator(),
+            );
           } else if (snapshot.hasError) {
-            return Text('Error: ${snapshot.error}');
+            return Center(
+              child: Text('Error: ${snapshot.error}'),
+            );
           } else {
             final todos = snapshot.data;
             return ListView.builder(
@@ -35,7 +39,7 @@ class Screen1 extends StatelessWidget {
                 Color iconBackgroundColor =
                     todo.completed ? Colors.green : Colors.red;
                 return Container(
-                  color:Colors.grey[200],
+                  color: Colors.grey[200],
                   margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                   child: ListTile(
                     contentPadding: const EdgeInsets.all(5),

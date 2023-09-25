@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class Screen2 extends StatelessWidget {
+class Screen2 extends StatefulWidget {
   const Screen2({super.key});
 
   @override
+  _Screen2State createState() => _Screen2State();
+}
+
+class _Screen2State extends State<Screen2> {
+  TextEditingController textController = TextEditingController();
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
+  }
+
+  Future<void> saveData(String key, String value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setString(key, value);
+  }
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController textController = TextEditingController();
-
-    Future<void> saveData(String key, String value) async {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setString(key, value);
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: const Text(

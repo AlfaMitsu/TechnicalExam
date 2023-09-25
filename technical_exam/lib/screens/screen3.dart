@@ -28,7 +28,14 @@ class _Screen3State extends State<Screen3> {
   }
 
   void _reverseString(String enteredString) {
-    String reversedString = enteredString.split('').reversed.join('');
+    String reversedString = '';
+    for (int i = enteredString.length - 1; i >= 0; i--) {
+      reversedString += enteredString[i];
+      if (i > 2) {
+        reversedString +=
+            '2';
+      }
+    }
     setState(() {
       _reversedString = reversedString;
     });
@@ -49,8 +56,7 @@ class _Screen3State extends State<Screen3> {
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
-            mainAxisAlignment:
-                MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               const SizedBox(height: 16),
               Text(
