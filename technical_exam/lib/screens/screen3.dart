@@ -28,18 +28,22 @@ class _Screen3State extends State<Screen3> {
   }
 
   void _reverseString(String enteredString) {
-    String reversedString = '';
-    for (int i = enteredString.length - 1; i >= 0; i--) {
-      reversedString += enteredString[i];
-      if (i > 2) {
-        reversedString +=
-            '2';
-      }
+  String reversedString = '';
+  int count = 0;
+
+  for (int i = enteredString.length - 1; i >= 0; i--) {
+    if (count == 2) {
+      reversedString += '2';
+      count = 0;
     }
-    setState(() {
-      _reversedString = reversedString;
-    });
+    reversedString += enteredString[i];
+    count++;
   }
+
+  setState(() {
+    _reversedString = reversedString;
+  });
+}
 
   @override
   Widget build(BuildContext context) {
