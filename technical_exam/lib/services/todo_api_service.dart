@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:technical_exam/models/Todo_model.dart';
+import 'package:technical_exam/models/todo.dart';
 
 class TodoApiService {
   final String apiUrl;

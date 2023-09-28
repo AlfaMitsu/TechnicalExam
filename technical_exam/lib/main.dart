@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:technical_exam/screens/details_screen.dart';
 import 'package:technical_exam/screens/home_screen.dart';
-import 'package:technical_exam/screens/screen1.dart';
 import 'package:technical_exam/screens/screen2.dart';
 import 'package:technical_exam/screens/screen3.dart';
 
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: const HomeScreen(),
       routes: {
-        '/screen1': (context) => Screen1(),
+        '/details': (context) => DetailsScreen(),
         '/screen2': (context) => const Screen2(),
         '/screen3': (context) => const Screen3(),
       },

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:technical_exam/models/Todo_model.dart';
+import 'package:technical_exam/models/todo.dart';
 import 'package:technical_exam/services/todo_api_service.dart';
 
 class Screen1 extends StatelessWidget {
