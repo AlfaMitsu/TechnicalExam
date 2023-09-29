@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:technical_exam/models/details.dart';
+import 'package:technical_exam/screens/product_screen.dart';
 import 'package:technical_exam/services/details_api_service.dart';
 
 class DetailsScreen extends StatelessWidget {
@@ -38,10 +39,18 @@ class DetailsScreen extends StatelessWidget {
               itemBuilder: (context, index) {
                 final product = products![index];
                 return ListTile(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProductScreen(product: product),
+                      ),
+                    );
+                  },
                   leading: Image.network(
                     product.thumbnail,
                     width: 100,
-                    height: 100,
+                    height: 150,
                     fit: BoxFit.cover,
                   ),
                   title: Text(product.title),
@@ -61,8 +70,7 @@ class DetailsScreen extends StatelessWidget {
                           Icons.star,
                           color: Colors.amber,
                         ),
-                        onRatingUpdate: (rating) {
-                        },
+                        onRatingUpdate: (rating) {},
                       ),
                     ],
                   ),
